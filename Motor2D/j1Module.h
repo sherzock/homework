@@ -61,14 +61,14 @@ public:
 
 	// TODO 3: Create new virtual methods to Load and Save
 
-	virtual bool Load()
+	virtual void Load()
 	{
-		return true;
+
 	}
 
-	virtual bool Safe()
+	virtual void Safe()
 	{
-		return true;
+
 	}
 
 public:
