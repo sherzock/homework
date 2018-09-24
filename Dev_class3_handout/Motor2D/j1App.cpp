@@ -122,14 +122,6 @@ bool j1App::Update()
 }
 
 
-void j1App::real_save()
-{
-}
-
-void j1App::real_load()
-{
-}
-
 // ---------------------------------------------
 bool j1App::LoadConfig()
 {
@@ -160,18 +152,14 @@ void j1App::PrepareUpdate()
 void j1App::FinishUpdate()
 {
 	// TODO 1: This is a good place to call load / Save functions
-	if (must_load)
-	{
+	if (must_load) {
 		real_load();
 		must_load = false;
 	}
-
-	if (must_save)
-	{
+	if (must_save) {
 		real_save();
 		must_save = false;
 	}
-		
 }
 
 // Call modules before each loop iteration
@@ -287,6 +275,15 @@ const char* j1App::GetOrganization() const
 
 // TODO 5: Create a method to actually load an xml file
 // then call all the modules to load themselves
+
+void j1App::real_load()
+{
+
+}
+void j1App::real_save()
+{
+
+}
 
 // TODO 7: Create a method to save the current state
 

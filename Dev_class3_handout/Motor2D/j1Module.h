@@ -24,10 +24,11 @@ public:
 	}
 
 	// Called before render is available
-	virtual bool Awake(pugi::xml_node&)
+	virtual bool Awake(pugi::xml_node& node)
 	{
 		return true;
 	}
+
 
 	// Called before the first frame
 	virtual bool Start()
@@ -61,13 +62,11 @@ public:
 
 	// TODO 3: Create new virtual methods to Load and Save
 
-	virtual bool Load()
-	{
+	virtual bool Save(pugi::xml_node&) {
 		return true;
 	}
 
-	virtual bool Safe()
-	{
+	virtual bool Load() {
 		return true;
 	}
 

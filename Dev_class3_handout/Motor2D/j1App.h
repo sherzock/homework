@@ -43,28 +43,23 @@ public:
 	const char* GetArgv(int index) const;
 	const char* GetTitle() const;
 	const char* GetOrganization() const;
+	 
 
 	// TODO 1: Create methods to save and load
 	// that can be called anytime, even if they 
 	// will one execute by the very end of the frame
 	// Load / Save
-		
-	void Save()
-	{
-		must_save = true;
-	}
 
-	void const Load() 
-	{
+	void Load() {
 		must_load = true;
 	}
-	
-
+	void Save() {
+		must_save = true;
+	}
 
 private:
 
 	void real_save();
-
 	void real_load();
 
 	// Load config file
@@ -94,6 +89,8 @@ public:
 	j1Textures*			tex;
 	j1Audio*			audio;
 	j1Scene*			scene;
+	bool				must_save;
+	bool				must_load;
 
 private:
 
@@ -108,9 +105,9 @@ private:
 
 	p2SString			title;
 	p2SString			organization;
+	bool				must_save = false;
+	bool				must_load = false;
 
-	bool must_save = false;
-	bool must_load = false;
 };
 
 extern j1App* App;
