@@ -6,21 +6,27 @@
 #include "p2Point.h"
 #include "j1Module.h"
 
-// TODO 1: Create a struct for the map layer+
-struct layer {
+
+#define MAP1 "hello2.tmx"
+#define MAP2 "hexagonal-mini.tmx"
+#define MAP3 "isometric_grass_and_water.tmx"
+#define MAP4 "sewers.tmx"
+
+
+// TODO 1: Create a struct for the map layer
+// ----------------------------------------------------
+
+struct MapLayer {
 	p2SString name;
 	uint width;
 	uint height;
-	uint* data;
-	
-	~layer() {
-		if (data != nullptr) delete[] data;
-	}
+	uint* data = nullptr;
+	inline uint Get(int x, int y) const;
 };
-// ----------------------------------------------------
+
+
 
 	// TODO 6: Short function to get the value of x,y
-
 
 
 // ----------------------------------------------------
@@ -62,7 +68,7 @@ struct MapData
 	MapTypes			type;
 	p2List<TileSet*>	tilesets;
 	// TODO 2: Add a list/array of layers to the map!
-	p2List<layer*>	layerArray;
+	p2List<MapLayer*> layers;
 };
 
 // ----------------------------------------------------
@@ -96,12 +102,11 @@ private:
 	bool LoadTilesetDetails(pugi::xml_node& tileset_node, TileSet* set);
 	bool LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set);
 	// TODO 3: Create a method that loads a single laye
-	bool LoadLayer(pugi::xml_node& node, layer* layer);
+	bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
 
 public:
 
 	MapData data;
-	layer Layer;
 
 private:
 
