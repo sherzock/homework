@@ -6,6 +6,7 @@
 #include "p2Point.h"
 #include "j1Module.h"
 
+<<<<<<< HEAD
 
 #define MAP1 "hello2.tmx"
 #define MAP2 "hexagonal-mini.tmx"
@@ -22,6 +23,18 @@ struct MapLayer {
 	uint height;
 	uint* data = nullptr;
 	inline uint Get(int x, int y) const;
+=======
+// TODO 1: Create a struct for the map layer+
+struct Maplayer {
+	p2SString name;
+	uint width;
+	uint height;
+	uint* data;
+	
+	~Maplayer() {
+		if (data != nullptr) delete[] data;
+	}
+>>>>>>> 2f8e8e2612aa5036231484985bf4619ea4586fca
 };
 
 
@@ -68,7 +81,11 @@ struct MapData
 	MapTypes			type;
 	p2List<TileSet*>	tilesets;
 	// TODO 2: Add a list/array of layers to the map!
+<<<<<<< HEAD
 	p2List<MapLayer*> layers;
+=======
+	p2List<Maplayer*>	layerArray;
+>>>>>>> 2f8e8e2612aa5036231484985bf4619ea4586fca
 };
 
 // ----------------------------------------------------
@@ -102,11 +119,19 @@ private:
 	bool LoadTilesetDetails(pugi::xml_node& tileset_node, TileSet* set);
 	bool LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set);
 	// TODO 3: Create a method that loads a single laye
+<<<<<<< HEAD
 	bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
+=======
+	bool LoadLayer(pugi::xml_node& node, Maplayer* layer);
+>>>>>>> 2f8e8e2612aa5036231484985bf4619ea4586fca
 
 public:
 
 	MapData data;
+<<<<<<< HEAD
+=======
+	Maplayer Layer;
+>>>>>>> 2f8e8e2612aa5036231484985bf4619ea4586fca
 
 private:
 
