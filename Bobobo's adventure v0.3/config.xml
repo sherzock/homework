@@ -1,0 +1,47 @@
+<!-- Config file for the game -->
+
+<config>
+  <app>
+    <title>Game Development Testbed</title>
+    <organization>UPC</organization>
+  </app>
+	
+  <renderer>
+    <vsync value="true"/>
+  </renderer>
+
+  <player>
+	<physics>
+		<xspeed atr="4.0f"/>
+		<initialspeed atr=" 0.02f"/>
+		<gravity atr="0.0f"/>
+		<jumpforce atr="7.88f"/>
+		<jumpreset atr="7.88f"/>
+		<gravityMax atr="4.5f"/>
+		<gravityIterator atr="0.3f"/>
+		<JumpforceIterator atr=" 0.2f"/>
+		<DashSpeed atr=" 4.0f"/>
+		<DashSpeedres atr=" 4.0f"/>
+		<DashAcc atr=" 0.5f"/>
+		
+	</physics>
+  </player>
+	
+  
+  <window>
+    <resolution width="1024" height="768" scale="1"/>
+    <fullscreen value="false"/>
+    <borderless value="false"/>
+    <resizable value="false"/>
+    <fullscreen_window value="false"/>
+  </window>
+  
+  <file_system>
+    <path>data.zip</path>
+  </file_system>
+
+  <map>
+    <folder>maps/</folder>
+  </map>
+
+</config>
