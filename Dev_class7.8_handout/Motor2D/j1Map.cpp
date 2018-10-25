@@ -80,7 +80,7 @@ void j1Map::PropagateDijkstra()
 		for (uint i = 0; i < 4; ++i)
 		{
 			uint cost = cost_so_far[curr.x][curr.y] + MovementCost(neighbors[i].x, neighbors[i].y);
-			if (cost != cost_so_far[curr.x][curr.y] - 1)
+			if (cost >= cost_so_far[curr.x][curr.y])
 			{
 				if (cost_so_far[neighbors[i].x][neighbors[i].y] == 0 || cost_so_far[neighbors[i].x][neighbors[i].y] > cost)
 				{
