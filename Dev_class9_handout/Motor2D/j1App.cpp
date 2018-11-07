@@ -42,6 +42,8 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 
 	// render last to swap buffer
 	AddModule(render);
+
+	LOG("Constructor took: %i ms", perftimer.ReadTicks());
 }
 
 // Destructor
@@ -97,6 +99,8 @@ bool j1App::Awake()
 		}
 	}
 
+	LOG("Awake took: %i ms", perftimer.ReadTicks());
+
 	return ret;
 }
 
@@ -112,6 +116,9 @@ bool j1App::Start()
 		ret = item->data->Start();
 		item = item->next;
 	}
+
+	LOG("Start took: %i ms", perftimer.ReadTicks());
+
 	return ret;
 }
 
@@ -173,12 +180,14 @@ void j1App::FinishUpdate()
 	// Amount of ms took the last update
 	// Amount of frames during the last second
 
-	float avg_fps = 0.0f;
-	float seconds_since_startup = 0.0f;
-	float dt = 0.0f;
 	uint32 last_frame_ms = 0;
 	uint32 frames_on_last_update = 0;
-	uint64 frame_count = 0;
+	uint64 frame_count = perftimer.ReadTicks();
+	float seconds_since_startup = timer.ReadSec();
+	float dt = 0.0f;
+	float avg_fps = frame_count / timer.ReadSec();
+
+
 
 	static char title[256];
 	sprintf_s(title, 256, "Av.FPS: %.2f Last Frame Ms: %02u Last sec frames: %i Last dt: %.3f Time since startup: %.3f Frame Count: %lu ",
@@ -205,6 +214,7 @@ bool j1App::PreUpdate()
 
 		ret = item->data->PreUpdate();
 	}
+
 
 	return ret;
 }
@@ -264,6 +274,9 @@ bool j1App::CleanUp()
 		ret = item->data->CleanUp();
 		item = item->prev;
 	}
+
+	LOG("CleanUp took: %i ms", perftimer.ReadTicks());
+
 	return ret;
 }
 

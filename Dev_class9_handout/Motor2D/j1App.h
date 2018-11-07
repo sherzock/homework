@@ -103,6 +103,9 @@ private:
 	p2SString			load_game;
 	mutable p2SString	save_game;
 
+	j1Timer timer;
+	j1PerfTimer perftimer;
+
 };
 
 extern j1App* App; // No student is asking me about that ... odd :-S
