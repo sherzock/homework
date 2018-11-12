@@ -67,14 +67,6 @@ bool j1Render::PreUpdate()
 	return true;
 }
 
-bool j1Render::Update()
-{
-	while (App->perftimer.ReadMs() < 1.0f / framerate) {
-		
-	}
-	return true;
-}
-
 bool j1Render::PostUpdate()
 {
 	SDL_SetRenderDrawColor(renderer, background.r, background.g, background.g, background.a);

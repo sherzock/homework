@@ -47,14 +47,10 @@ public:
 	const char* GetArgv(int index) const;
 	const char* GetTitle() const;
 	const char* GetOrganization() const;
-	float GetDT() const;
 
 	void LoadGame(const char* file);
 	void SaveGame(const char* file) const;
 	void GetSaveGames(p2List<p2SString>& list_to_fill) const;
-
-	j1Timer timer;
-	j1PerfTimer perftimer;
 
 private:
 
@@ -91,6 +87,8 @@ public:
 	j1Scene*			scene = NULL;
 	j1Map*				map = NULL;
 	j1PathFinding*		pathfinding = NULL;
+	float				dt;
+	float				speed;
 
 private:
 
@@ -106,7 +104,15 @@ private:
 	p2SString			load_game;
 	mutable p2SString	save_game;
 
-
+	j1PerfTimer			ptimer;
+	uint64				frame_count = 0;
+	j1Timer				startup_time;
+	j1Timer				frame_time;
+	j1Timer				last_sec_frame_time;
+	j1PerfTimer			delay_timer;
+	uint32				last_sec_frame_count = 0;
+	uint32				prev_last_sec_frame_count = 0;
+	int					frame_cap;
 };
 
 extern j1App* App; // No student is asking me about that ... odd :-S

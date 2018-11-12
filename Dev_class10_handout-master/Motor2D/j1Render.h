@@ -22,7 +22,6 @@ public:
 
 	// Called each loop iteration
 	bool PreUpdate();
-	bool Update();
 	bool PostUpdate();
 
 	// Called before quitting
@@ -45,8 +44,6 @@ public:
 
 	// Set background color
 	void SetBackgroundColor(SDL_Color color);
-
-	uint framerate = 30;
 
 public:
 
