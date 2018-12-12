@@ -61,6 +61,9 @@
     <ClCompile Include="ImageUI.cpp">
       <Filter>Desenvolupament  ========\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="WindowUI.cpp">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -132,13 +135,16 @@
     <ClInclude Include="j1UIelements.h">
       <Filter>Desenvolupament  ========\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ButtonUIcpp.h">
-      <Filter>Desenvolupament  ========\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="LabelUI.h">
       <Filter>Desenvolupament  ========\GUI</Filter>
     </ClInclude>
     <ClInclude Include="ImageUI.h">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowUI.h">
+      <Filter>Desenvolupament  ========\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonUI.h">
       <Filter>Desenvolupament  ========\GUI</Filter>
     </ClInclude>
   </ItemGroup>

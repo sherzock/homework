@@ -178,22 +178,14 @@ j1UIelements* j1Gui::AddItem(Type guitype, Position ali)
 
 	switch (guitype)
 	{
-	//case CHECK:
-	//	ret = new GuiCheck(ali);
-	//	items.add(ret);
-	//	break;
 	case IMAGE:
 		ret = new ImageUI(ali);
 		items.add(ret);
 		break;
-	//case BUTTON:
-	//	ret = new GuiButton(ali);
-	//	items.add(ret);
-	//	break;
-	//case INPUTBOX:
-	//	ret = new GuiInput(ali);
-	//	items.add(ret);
-	//	break;
+	case BUTTON:
+		ret = new ButtonUI(ali);
+		items.add(ret);
+		break;
 	case LABEL:
 		ret = new LabelUI(ali);
 		items.add(ret);
@@ -221,25 +213,16 @@ ImageUI* j1Gui::AddImage(Position ali, char* path, SDL_Rect texture, iPoint move
 	return image;
 }
 
-//GuiButton* j1Gui::AddButton(Alignment align, p2SString text, iPoint displacement, j1Module* listener)
-//{
-//	GuiButton* button = (GuiButton*)App->gui->AddElement(BUTTON, align);
-//	button->displacement = displacement;
-//	button->text = text;
-//	button->listener = listener;
-//	button->Start();
-//	return button;
-//}
-//
-//GuiCheck* j1Gui::AddCheck(Alignment align, p2SString text, iPoint displacement, j1Module* listener)
-//{
-//	GuiCheck* check = (GuiCheck*)App->gui->AddElement(CHECK, align);
-//	check->displacement = displacement;
-//	check->text = text;
-//	check->listener = listener;
-//	check->Start();
-//	return check;
-//}
+ButtonUI* j1Gui::AddButton(Position ali, p2SString text, iPoint movement, j1Module* listener)
+{
+	ButtonUI* button = (ButtonUI*)App->gui->AddItem(BUTTON, ali);
+	button->movement = movement;
+	button->text = text;
+	button->listener = listener;
+	button->Start();
+	return button;
+}
+
 
 LabelUI* j1Gui::AddText(Position ali, p2SString text, iPoint movement, Fonts font, SDL_Color color, j1Module* listener)
 {
@@ -251,13 +234,13 @@ LabelUI* j1Gui::AddText(Position ali, p2SString text, iPoint movement, Fonts fon
 	return tex;
 }
 
-//GuiWindow* j1Gui::AddWindow(Alignment align, uint num_buttons, p2SString title, iPoint displacement, j1Module* listener)
-//{
-//	GuiWindow* window = (GuiWindow*)App->gui->AddElement(WINDOW, align);
-//	window->displacement = displacement;
-//	window->num_buttons = num_buttons;
-//	window->title = title;
-//	window->listener = listener;
-//	window->Start();
-//	return window;
-//}
+WindowUI* j1Gui::AddWindow(Position ali, uint ButtonCount_, p2SString title, iPoint movement, j1Module* listener)
+{
+	WindowUI* window = (WindowUI*)App->gui->AddItem(WINDOW, ali);
+	window->movement = movement;
+	window->ButtonCount = ButtonCount_;
+	window->title = title;
+	window->listener = listener;
+	window->Start();
+	return window;
+}

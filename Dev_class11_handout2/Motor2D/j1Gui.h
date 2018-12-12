@@ -6,6 +6,8 @@
 #include "j1UIelements.h"
 #include "LabelUI.h"
 #include "ImageUI.h"
+#include "ButtonUI.h"
+#include "WindowUI.h"
 
 #define CURSOR_WIDTH 2
 
@@ -44,10 +46,10 @@ public:
 	SDL_Texture* GetAtlas() const;
 
 	ImageUI* AddImage(Position ali, char* path, SDL_Rect texture = { 0,0,0,0 }, iPoint movement = { 0,0 }, j1Module* listener = nullptr);
-	/*GuiButton* AddButton(Alignment align, p2SString text, iPoint displacement = { 0,0 }, j1Module* listener = nullptr);
-	GuiCheck* AddCheck(Alignment align, p2SString text, iPoint displacement = { 0,0 }, j1Module* listener = nullptr);*/
+	ButtonUI* AddButton(Position ali, p2SString text, iPoint movement = { 0,0 }, j1Module* listener = nullptr);
+	/*GuiCheck* AddCheck(Alignment align, p2SString text, iPoint displacement = { 0,0 }, j1Module* listener = nullptr);*/
 	LabelUI* AddText(Position ali, p2SString text, iPoint movement = { 0,0 }, Fonts = OPENSANS, SDL_Color color = { 255,255,255,255 }, j1Module* listener = nullptr);
-	/*GuiWindow* AddWindow(Alignment align, uint num_buttons, p2SString title, iPoint displacement = { 0,0 }, j1Module* listener = nullptr);*/
+	WindowUI* AddWindow(Position ali, uint num_buttons, p2SString title, iPoint movement = { 0,0 }, j1Module* listener = nullptr);
 
 private:
 

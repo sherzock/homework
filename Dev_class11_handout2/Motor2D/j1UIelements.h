@@ -38,7 +38,7 @@ public:
 	Type guitype;
 	Event event = Event::MOUSE_OUTSIDE;
 	Event previous_event = Event::MOUSE_OUTSIDE;
-	//Input MouseInput = Input::IDLE;
+	Input inp = Input::IDLE;
 	Position ali;
 
 	SDL_Rect rect;

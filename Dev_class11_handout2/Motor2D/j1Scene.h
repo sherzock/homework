@@ -4,12 +4,13 @@
 #include "j1Module.h"
 
 struct SDL_Texture;
-class GuiImage;
-class GuiText;
-
-
-class LabelUI;
 class ImageUI;
+class LabelUI;
+class ButtonUI;
+class GuiCheck;
+class GuiInput;
+class WindowUI;
+
 
 class j1Scene : public j1Module
 {
@@ -38,12 +39,24 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	void OnEventChange(j1UIelements* elem, Event event) const;
+
 private:
-	SDL_Texture* debug_tex;
-	GuiImage* banner;
-	GuiText* text;
-	LabelUI* test = nullptr;
-	ImageUI* test2 = nullptr;
+	SDL_Texture * debug_tex;
+	SDL_Texture* background;
+	ImageUI* WC_logo;
+	ImageUI* rating;
+	ImageUI* blizzard;
+
+	ButtonUI* login;
+
+	LabelUI* release;
+	LabelUI* copyright;
+	LabelUI* date;
+	LabelUI* web;
+
+	WindowUI* window;
+
 };
 
 #endif // __j1SCENE_H__
